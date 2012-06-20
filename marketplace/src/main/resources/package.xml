@@ -1,0 +1,32 @@
+<package type="addon" name="nuxeo-diff" version="@VERSION@">
+  <title>Nuxeo Diff</title>
+  <description>
+    <p>This addon adds the Diff functionality to Nuxeo. It allows to compare 2 documents or 2 versions of a document,
+    for example if you need to list the changes between 2 versions of functional specifications.</p>
+    <p>The comparison is based on the properties shared by the 2 documents.
+    This means that if a comparison is done between two documents of a different type, only the schemas in common will be "diffed".
+    The result of the comparison only shows the properties that have been updated, or added / deleted in the case of multivalued properties.</p>
+    <p>The comparison takes into account metadata as well as binary content for standard file formats:
+    <i>.doc, .docx, .odt, .xls, .xlsx, .ods, .ppt, .pptx, .odp, .pdf, .txt, .html, .xml, .md</i>.
+    The content diff is displayed in the usual way by highlighting the added changes in green and the deleted ones in red.</p>
+    <p>The Diff feature provides extension points that allow to configure the diff display for each document type using <i>diff blocks</i> and <i>widgets</i>.
+    You can also contribute extra <i>content differs</i> to handle specific file types such as images.</p>
+    <p>In terms of user interface, the Diff addon adds a "Compare" button to all the document list views, including Archived versions, Search results, Sections, Trash, etc.
+    You can also compare 2 documents added to the Worklist.</p>
+  </description>
+  <home-page>http://doc.nuxeo.com/x/7YGo</home-page>
+  <vendor>Nuxeo</vendor>
+  <installer restart="true" />
+  <uninstaller restart="true" />
+  <!-- <hotreload-support>false</hotreload-support> -->
+  <!-- <require-terms-and-conditions-acceptance>false -->
+  <!-- </require-terms-and-conditions-acceptance> -->
+  <nuxeo-validation>nuxeo_certified</nuxeo-validation>
+  <production-state>production_ready</production-state>
+  <supported>true</supported>
+  <platforms>
+    <platform>cap-@DISTRIB_VERSION@</platform>
+  </platforms>
+  <license>LGPL</license>
+  <license-url>http://www.gnu.org/licenses/lgpl.html</license-url>
+</package>
