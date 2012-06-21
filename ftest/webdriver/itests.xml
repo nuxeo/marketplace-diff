@@ -14,11 +14,11 @@
   <import file="${out.dir}/nuxeo-ftest.xml" />
 
   <property name="mp.install"
-            value="${out.dir}/marketplace-${nuxeo.marketplace.diff.version}.zip" />
+            value="${out.dir}/nuxeo-diff-${nuxeo.marketplace.diff.version}.zip" />
   <target name="prepare-environment"
           depends="_init,prepare-db,prepare-tomcat,prepare-jboss">
     <copy todir="${out.dir}">
-      <artifact:resolveFile key="org.nuxeo.marketplace.diff:marketplace::zip" />
+      <artifact:resolveFile key="org.nuxeo.marketplace.diff:nuxeo-diff::zip" />
     </copy>
   </target>
 

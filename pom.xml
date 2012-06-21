@@ -29,7 +29,7 @@
       </dependency>
       <dependency>
         <groupId>org.nuxeo.marketplace.diff</groupId>
-        <artifactId>marketplace</artifactId>
+        <artifactId>nuxeo-diff</artifactId>
         <version>${nuxeo.marketplace.diff.version}</version>
         <type>zip</type>
       </dependency>
