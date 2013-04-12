@@ -26,6 +26,8 @@
       file2="${maven.project.build.directory}/nuxeo-distribution-cap-${nuxeo.distribution.version}.zip"
       includesfile="${maven.project.build.directory}/includes"
       excludesfile="${maven.project.build.directory}/excludesfile"
+      ignoreContent="true"
+      ignoreContentPattern=".*SNAPSHOT\\.jar$"
       patternsetid="diff.versus.cap">
     </nx:zipdiff>
     <unzip
