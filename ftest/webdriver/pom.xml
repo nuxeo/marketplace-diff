@@ -10,10 +10,9 @@
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
-  <artifactId>ftest</artifactId>
+  <artifactId>nuxeo-diff-webdriver-tests</artifactId>
   <name>Nuxeo Diff Functional Tests</name>
   <description>Nuxeo Diff Functional Tests</description>
-  <packaging>pom</packaging>
 
   <build>
     <plugins>
@@ -79,6 +78,33 @@
       </plugin>
     </plugins>
   </build>
+
+<dependencies>
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <scope>compile</scope>
+  </dependency>
+  <dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.nuxeo.ecm.distribution</groupId>
+    <artifactId>nuxeo-functional-tests</artifactId>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.nuxeo.runtime</groupId>
+    <artifactId>nuxeo-runtime-test</artifactId>
+    <scope>test</scope>
+  </dependency>
+  <dependency>
+    <groupId>org.nuxeo.ecm.core</groupId>
+    <artifactId>nuxeo-core-test</artifactId>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
 
   <profiles>
     <profile>
