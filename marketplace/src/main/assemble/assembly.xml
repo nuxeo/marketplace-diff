@@ -11,7 +11,7 @@
     <copy todir="${maven.project.build.directory}/marketplace">
       <fileset dir="src/main/resources" />
       <filterset>
-        <filter token="VERSION" value="${nuxeo.marketplace.diff.version}" />
+        <filter token="VERSION" value="${marketplace.diff.version}" />
         <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
       </filterset>
     </copy>
@@ -22,7 +22,7 @@
         key="org.nuxeo.marketplace.diff:ear::zip" />
     </copy>
     <nx:zipdiff
-      file1="${maven.project.build.directory}/ear-${nuxeo.marketplace.diff.version}.zip"
+      file1="${maven.project.build.directory}/ear-${marketplace.diff.version}.zip"
       file2="${maven.project.build.directory}/nuxeo-distribution-cap-${nuxeo.distribution.version}.zip"
       includesfile="${maven.project.build.directory}/includes"
       excludesfile="${maven.project.build.directory}/excludesfile"
@@ -31,16 +31,16 @@
       patternsetid="diff.versus.cap">
     </nx:zipdiff>
     <unzip
-      src="${maven.project.build.directory}/ear-${nuxeo.marketplace.diff.version}.zip"
+      src="${maven.project.build.directory}/ear-${marketplace.diff.version}.zip"
       dest="${maven.project.build.directory}/marketplace/install">
       <patternset refid="diff.versus.cap" />
     </unzip>
 
     <zip
-      destfile="${maven.project.build.directory}/${maven.project.artifactId}-${nuxeo.marketplace.diff.version}.zip"
+      destfile="${maven.project.build.directory}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
       basedir="${maven.project.build.directory}/marketplace" />
     <artifact:attach
-      file="${maven.project.build.directory}/${maven.project.artifactId}-${nuxeo.marketplace.diff.version}.zip"
+      file="${maven.project.build.directory}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
       target="${maven.project.groupId}:${maven.project.artifactId}"
       type="zip" />
   </target>

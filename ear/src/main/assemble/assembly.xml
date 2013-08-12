@@ -43,10 +43,10 @@
     <copy file="${outdir}/test-artifacts-diff.properties" todir="${nuxeo.ear}" />
 
     <zip
-      destfile="${outdir}/${maven.project.artifactId}-${nuxeo.marketplace.diff.version}.zip"
+      destfile="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
       basedir="${nuxeo.ear}" />
     <artifact:attach
-      file="${outdir}/${maven.project.artifactId}-${nuxeo.marketplace.diff.version}.zip"
+      file="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
       target="${maven.project.groupId}:${maven.project.artifactId}"
       type="zip" />
   </target>
