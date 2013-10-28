@@ -16,8 +16,10 @@
  */
 package org.nuxeo.functionaltests;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -32,6 +34,13 @@ import org.openqa.selenium.WebElement;
  */
 public class ITSimpleDiff extends AbstractTest {
 
+    private final static String LEFT_DESCRIPTION_XPATH = "//span[@id='document_diff:nxl_dublincore:nxw_dublincore_description_left:nxw_dublincore_description:nxw_text']";
+
+    private final static String RIGHT_DESCRIPTION_XPATH = "//span[@id='document_diff:nxl_dublincore:nxw_dublincore_description_right:nxw_dublincore_description:nxw_text_1']";
+
+    private final static String WORKSPACE_TITLE = "WorkspaceTitle_"
+            + new Date().getTime();
+
     /**
      * Create a workspace with 2 files having a different description and then
      * perform a "Compare" on them. Check that the diff on description is
@@ -43,9 +52,12 @@ public class ITSimpleDiff extends AbstractTest {
      */
     @Test
     public void testDiffDescription() throws Exception {
-        DocumentBasePage defaultDomain = login();
+        DocumentBasePage documentBasePage = login();
 
-        DocumentBasePage workspacePage = initRepository(defaultDomain);
+        documentBasePage = documentBasePage.getNavigationSubPage().goToDocument(
+                "Workspaces");
+        DocumentBasePage workspacePage = createWorkspace(documentBasePage,
+                WORKSPACE_TITLE, null);
 
         // Create test File 1
         final String DESCRIPTION_1 = "" + System.currentTimeMillis();
@@ -53,15 +65,17 @@ public class ITSimpleDiff extends AbstractTest {
                 DESCRIPTION_1, false, null, null, null);
 
         workspacePage = newFile.getNavigationSubPage().goToDocument(
-                "Test Workspace");
+                WORKSPACE_TITLE);
 
         // Create test File 2
         final String DESCRIPTION_2 = "" + System.currentTimeMillis();
+        // Make sure the descriptions are different
+        assertFalse(DESCRIPTION_1.equals(DESCRIPTION_2));
         newFile = createFile(workspacePage, "Test file 2", DESCRIPTION_2,
                 false, null, null, null);
 
         workspacePage = newFile.getNavigationSubPage().goToDocument(
-                "Test Workspace");
+                WORKSPACE_TITLE);
 
         WebElement document_content = findElementWithTimeout(By.xpath("//form[@id=\"document_content\"]"));
 
@@ -75,17 +89,18 @@ public class ITSimpleDiff extends AbstractTest {
 
         findElementWaitUntilEnabledAndClick(By.xpath("//input[@value=\"Compare\"]"));
 
-        WebElement description1 = findElementWithTimeout(By.xpath("//div[contains(.,'"
-                + DESCRIPTION_1 + "')]"));
+        WebElement description1 = findElementWithTimeout(By.xpath(LEFT_DESCRIPTION_XPATH));
+        String description1Text = description1.getText();
+        assertTrue(description1Text != null
+                && description1Text.equals(DESCRIPTION_1));
 
-        assertTrue(description1 != null);
+        WebElement description2 = findElementWithTimeout(By.xpath(RIGHT_DESCRIPTION_XPATH));
 
-        WebElement description2 = findElementWithTimeout(By.xpath("//div[contains(.,'"
-                + DESCRIPTION_1 + "')]"));
+        String description2Text = description2.getText();
+        assertTrue(description2Text != null
+                && description2Text.equals(DESCRIPTION_2));
 
-        assertTrue(description2 != null);
-
-        cleanRepository(workspacePage);
+        deleteWorkspace(documentBasePage, WORKSPACE_TITLE);
 
         logout();
     }
