@@ -33,26 +33,6 @@
         <version>${marketplace.diff.version}</version>
         <type>zip</type>
       </dependency>
-      <dependency>
-        <groupId>org.nuxeo.ecm</groupId>
-        <artifactId>nuxeo-diff-core</artifactId>
-        <version>${nuxeo.diff.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.ecm</groupId>
-        <artifactId>nuxeo-diff-jsf</artifactId>
-        <version>${nuxeo.diff.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.ecm</groupId>
-        <artifactId>nuxeo-diff-content</artifactId>
-        <version>${nuxeo.diff.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.ecm</groupId>
-        <artifactId>nuxeo-diff-test</artifactId>
-        <version>${nuxeo.diff.version}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
