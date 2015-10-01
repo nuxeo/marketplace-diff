@@ -1,22 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>7.4-SNAPSHOT</version>
+    <version>7.4</version>
   </parent>
 
   <groupId>org.nuxeo.marketplace.diff</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo Diff Marketplace Parent</name>
-  <version>1.6.4-SNAPSHOT</version>
+  <version>1.6.4</version>
 
   <properties>
-    <marketplace.diff.version>1.6.4-SNAPSHOT</marketplace.diff.version>
-    <nuxeo.diff.version>7.4-SNAPSHOT</nuxeo.diff.version>
+    <marketplace.diff.version>1.6.4</marketplace.diff.version>
+    <nuxeo.diff.version>7.4</nuxeo.diff.version>
   </properties>
 
   <dependencyManagement>
