@@ -2,7 +2,7 @@
   <title>Nuxeo Diff</title>
   <description>The Nuxeo Diff addon enables to compare two documents or two versions of a document to see the differences between documents or versions, including metadata values comparison, as well as office files.
   </description>
-  <home-page>http://doc.nuxeo.com/x/7YGo</home-page>
+  <home-page>https://doc.nuxeo.com/nxdoc/nuxeo-diff/</home-page>
   <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
