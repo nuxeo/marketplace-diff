@@ -38,6 +38,10 @@
       <patternset refid="diff.versus.jsf" />
     </unzip>
 
+    <nx:studioExtraction todir="${maven.project.build.directory}/marketplace">
+      <fileset dir="${maven.project.build.directory}/marketplace/install/bundles"/>
+    </nx:studioExtraction>
+
     <zip destfile="${maven.project.build.directory}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
          basedir="${maven.project.build.directory}/marketplace" />
     <artifact:attach file="${maven.project.build.directory}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
