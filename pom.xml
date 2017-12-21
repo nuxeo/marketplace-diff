@@ -11,10 +11,10 @@
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo Diff Marketplace Parent</name>
-  <version>1.8.3</version>
+  <version>1.8.4-SNAPSHOT</version>
 
   <properties>
-    <marketplace.diff.version>1.8.3</marketplace.diff.version>
+    <marketplace.diff.version>1.8.4-SNAPSHOT</marketplace.diff.version>
     <nuxeo.diff.version>9.10</nuxeo.diff.version>
   </properties>
 
