@@ -46,6 +46,9 @@
 
     <zip destfile="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip" basedir="${nuxeo.ear}" />
     <artifact:attach file="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip" type="zip" />
+
+    <!-- cleanups -->
+    <delete dir="${nuxeo.ear}" failonerror="false" />
   </target>
 
   <target name="third-party-libraries">
