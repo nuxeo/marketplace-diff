@@ -4,47 +4,48 @@
 
   <target name="build" description="Build Nuxeo Diff Marketplace package">
     <tstamp />
-    <delete failonerror="false" dir="${maven.project.build.directory}/marketplace" />
-    <mkdir dir="${maven.project.build.directory}/marketplace" />
-    <copy todir="${maven.project.build.directory}/marketplace">
+    <property name="outdir" value="${maven.project.build.directory}" />
+    <delete failonerror="false" dir="${outdir}/marketplace" />
+    <mkdir dir="${outdir}/marketplace" />
+    <copy todir="${outdir}/marketplace">
       <fileset dir="src/main/resources" />
       <filterset>
         <filter token="VERSION" value="${marketplace.diff.version}" />
         <filter token="DISTRIB_VERSION" value="${nuxeo.distribution.version}" />
       </filterset>
     </copy>
-    <copy todir="${maven.project.build.directory}">
+    <copy todir="${outdir}">
       <artifact:file key="org.nuxeo.ecm.distribution:nuxeo-nxr-server::zip" />
       <artifact:file key="org.nuxeo.ecm.distribution:nuxeo-nxr-jsf-ui::zip" />
       <artifact:file key="org.nuxeo.marketplace.diff:ear::zip" />
     </copy>
-    <unzip src="${maven.project.build.directory}/nuxeo-nxr-server-${nuxeo.distribution.version}.zip"
-           dest="${maven.project.build.directory}/nuxeo-nxr-server-jsf-ui" />
-    <unzip src="${maven.project.build.directory}/nuxeo-nxr-jsf-ui-${nuxeo.distribution.version}.zip"
-           dest="${maven.project.build.directory}/nuxeo-nxr-server-jsf-ui" />
-    <zip destfile="${maven.project.build.directory}/nuxeo-nxr-server-jsf-ui-${nuxeo.distribution.version}.zip"
-         basedir="${maven.project.build.directory}/nuxeo-nxr-server-jsf-ui" />
+    <unzip src="${outdir}/nuxeo-nxr-server-${nuxeo.distribution.version}.zip"
+           dest="${outdir}/nuxeo-nxr-server-jsf-ui" />
+    <unzip src="${outdir}/nuxeo-nxr-jsf-ui-${nuxeo.distribution.version}.zip"
+           dest="${outdir}/nuxeo-nxr-server-jsf-ui" />
+    <zip destfile="${outdir}/nuxeo-nxr-server-jsf-ui-${nuxeo.distribution.version}.zip"
+         basedir="${outdir}/nuxeo-nxr-server-jsf-ui" />
     <!-- Diff against Nuxeo Server + JSF UI -->
-    <nx:zipdiff file1="${maven.project.build.directory}/ear-${marketplace.diff.version}.zip"
-                file2="${maven.project.build.directory}/nuxeo-nxr-server-jsf-ui-${nuxeo.distribution.version}.zip"
-                includesfile="${maven.project.build.directory}/includes"
-                excludesfile="${maven.project.build.directory}/excludesfile"
+    <nx:zipdiff file1="${outdir}/ear-${marketplace.diff.version}.zip"
+                file2="${outdir}/nuxeo-nxr-server-jsf-ui-${nuxeo.distribution.version}.zip"
+                includesfile="${outdir}/includes"
+                excludesfile="${outdir}/excludesfile"
                 ignoreContent="true"
                 ignoreContentPattern=".*SNAPSHOT\\.jar$"
                 patternsetid="diff.versus.jsf">
     </nx:zipdiff>
-    <unzip src="${maven.project.build.directory}/ear-${marketplace.diff.version}.zip"
-           dest="${maven.project.build.directory}/marketplace/install">
+    <unzip src="${outdir}/ear-${marketplace.diff.version}.zip"
+           dest="${outdir}/marketplace/install">
       <patternset refid="diff.versus.jsf" />
     </unzip>
 
-    <nx:studioExtraction todir="${maven.project.build.directory}/marketplace">
-      <fileset dir="${maven.project.build.directory}/marketplace/install/bundles"/>
+    <nx:studioExtraction todir="${outdir}/marketplace">
+      <fileset dir="${outdir}/marketplace/install/bundles"/>
     </nx:studioExtraction>
 
-    <zip destfile="${maven.project.build.directory}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
-         basedir="${maven.project.build.directory}/marketplace" />
-    <artifact:attach file="${maven.project.build.directory}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
+    <zip destfile="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
+         basedir="${outdir}/marketplace" />
+    <artifact:attach file="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
                      type="zip" />
   </target>
 
