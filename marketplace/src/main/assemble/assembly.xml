@@ -42,6 +42,7 @@
     <zip destfile="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
          basedir="${outdir}/marketplace" />
     <artifact:attach file="${outdir}/${maven.project.artifactId}-${marketplace.diff.version}.zip"
+         type="zip" />
 
     <!-- cleanups -->
     <delete dir="${outdir}/marketplace" failonerror="false" />
