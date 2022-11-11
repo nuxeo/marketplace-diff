@@ -4,18 +4,18 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>10.10-HF65</version>
+    <version>10.10-HF68-SNASHOT</version>
   </parent>
 
   <groupId>org.nuxeo.marketplace.diff</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>Nuxeo Diff Marketplace Parent</name>
-  <version>1.9.4</version>
+  <version>1.9.5-SNAPSHOT</version>
 
   <properties>
-    <marketplace.diff.version>1.9.4</marketplace.diff.version>
-    <nuxeo.diff.version>10.10-HF65</nuxeo.diff.version>
+    <marketplace.diff.version>1.9.5-SNAPSHOT</marketplace.diff.version>
+    <nuxeo.diff.version>10.10-HF68-SNAPSHOT</nuxeo.diff.version>
   </properties>
 
   <dependencyManagement>
