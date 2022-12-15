@@ -15,7 +15,7 @@
 
   <properties>
     <marketplace.diff.version>1.9.5-SNAPSHOT</marketplace.diff.version>
-    <nuxeo.diff.version>10.10-HF69-SNAPSHOT</nuxeo.diff.version>
+    <nuxeo.diff.version>10.10-HF70-SNAPSHOT</nuxeo.diff.version>
   </properties>
 
   <dependencyManagement>
